@@ -1,0 +1,19 @@
+{
+  "name": "news_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "get-schema": "graphql get-schema --endpoint https://news-server-prisma-d34d3feb97.herokuapp.com/news-prisma/dev --output src/generated/prisma.graphql --no-all"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "graphql-cli": "^3.0.11",
+    "graphql-yoga": "^1.17.4",
+    "prisma-binding": "^2.3.10"
+  }
+}

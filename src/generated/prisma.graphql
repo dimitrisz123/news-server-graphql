@@ -1,0 +1,864 @@
+# source: https://news-server-prisma-d34d3feb97.herokuapp.com/news-prisma/dev
+# timestamp: Sun Apr 21 2019 19:57:44 GMT+0300 (Eastern European Summer Time)
+
+type AggregateArticle {
+  count: Int!
+}
+
+type Article implements Node {
+  id: ID!
+  site: String!
+  title: String!
+  section: String!
+  summary: String!
+  image: String!
+  content: String
+  time: DateTime!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""
+A connection to a list of items.
+"""
+type ArticleConnection {
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  A list of edges.
+  """
+  edges: [ArticleEdge]!
+  aggregate: AggregateArticle!
+}
+
+input ArticleCreateInput {
+  site: String!
+  title: String!
+  section: String!
+  summary: String!
+  image: String!
+  content: String
+  time: DateTime!
+}
+
+"""
+An edge in a connection.
+"""
+type ArticleEdge {
+  """
+  The item at the end of the edge.
+  """
+  node: Article!
+
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+}
+
+enum ArticleOrderByInput {
+  id_ASC
+  id_DESC
+  site_ASC
+  site_DESC
+  title_ASC
+  title_DESC
+  section_ASC
+  section_DESC
+  summary_ASC
+  summary_DESC
+  image_ASC
+  image_DESC
+  content_ASC
+  content_DESC
+  time_ASC
+  time_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type ArticlePreviousValues {
+  id: ID!
+  site: String!
+  title: String!
+  section: String!
+  summary: String!
+  image: String!
+  content: String
+  time: DateTime!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type ArticleSubscriptionPayload {
+  mutation: MutationType!
+  node: Article
+  updatedFields: [String!]
+  previousValues: ArticlePreviousValues
+}
+
+input ArticleSubscriptionWhereInput {
+  """
+  Logical AND on all given filters.
+  """
+  AND: [ArticleSubscriptionWhereInput!]
+
+  """
+  Logical OR on all given filters.
+  """
+  OR: [ArticleSubscriptionWhereInput!]
+
+  """
+  Logical NOT on all given filters combined by AND.
+  """
+  NOT: [ArticleSubscriptionWhereInput!]
+
+  """
+  The subscription event gets dispatched when it's listed in mutation_in
+  """
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: ArticleWhereInput
+}
+
+input ArticleUpdateInput {
+  site: String
+  title: String
+  section: String
+  summary: String
+  image: String
+  content: String
+  time: DateTime
+}
+
+input ArticleUpdateManyMutationInput {
+  site: String
+  title: String
+  section: String
+  summary: String
+  image: String
+  content: String
+  time: DateTime
+}
+
+input ArticleWhereInput {
+  """
+  Logical AND on all given filters.
+  """
+  AND: [ArticleWhereInput!]
+
+  """
+  Logical OR on all given filters.
+  """
+  OR: [ArticleWhereInput!]
+
+  """
+  Logical NOT on all given filters combined by AND.
+  """
+  NOT: [ArticleWhereInput!]
+  id: ID
+
+  """
+  All values that are not equal to given value.
+  """
+  id_not: ID
+
+  """
+  All values that are contained in given list.
+  """
+  id_in: [ID!]
+
+  """
+  All values that are not contained in given list.
+  """
+  id_not_in: [ID!]
+
+  """
+  All values less than the given value.
+  """
+  id_lt: ID
+
+  """
+  All values less than or equal the given value.
+  """
+  id_lte: ID
+
+  """
+  All values greater than the given value.
+  """
+  id_gt: ID
+
+  """
+  All values greater than or equal the given value.
+  """
+  id_gte: ID
+
+  """
+  All values containing the given string.
+  """
+  id_contains: ID
+
+  """
+  All values not containing the given string.
+  """
+  id_not_contains: ID
+
+  """
+  All values starting with the given string.
+  """
+  id_starts_with: ID
+
+  """
+  All values not starting with the given string.
+  """
+  id_not_starts_with: ID
+
+  """
+  All values ending with the given string.
+  """
+  id_ends_with: ID
+
+  """
+  All values not ending with the given string.
+  """
+  id_not_ends_with: ID
+  site: String
+
+  """
+  All values that are not equal to given value.
+  """
+  site_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  site_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  site_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  site_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  site_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  site_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  site_gte: String
+
+  """
+  All values containing the given string.
+  """
+  site_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  site_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  site_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  site_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  site_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  site_not_ends_with: String
+  title: String
+
+  """
+  All values that are not equal to given value.
+  """
+  title_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  title_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  title_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  title_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  title_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  title_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  title_gte: String
+
+  """
+  All values containing the given string.
+  """
+  title_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  title_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  title_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  title_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  title_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  title_not_ends_with: String
+  section: String
+
+  """
+  All values that are not equal to given value.
+  """
+  section_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  section_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  section_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  section_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  section_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  section_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  section_gte: String
+
+  """
+  All values containing the given string.
+  """
+  section_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  section_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  section_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  section_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  section_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  section_not_ends_with: String
+  summary: String
+
+  """
+  All values that are not equal to given value.
+  """
+  summary_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  summary_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  summary_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  summary_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  summary_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  summary_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  summary_gte: String
+
+  """
+  All values containing the given string.
+  """
+  summary_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  summary_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  summary_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  summary_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  summary_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  summary_not_ends_with: String
+  image: String
+
+  """
+  All values that are not equal to given value.
+  """
+  image_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  image_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  image_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  image_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  image_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  image_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  image_gte: String
+
+  """
+  All values containing the given string.
+  """
+  image_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  image_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  image_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  image_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  image_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  image_not_ends_with: String
+  content: String
+
+  """
+  All values that are not equal to given value.
+  """
+  content_not: String
+
+  """
+  All values that are contained in given list.
+  """
+  content_in: [String!]
+
+  """
+  All values that are not contained in given list.
+  """
+  content_not_in: [String!]
+
+  """
+  All values less than the given value.
+  """
+  content_lt: String
+
+  """
+  All values less than or equal the given value.
+  """
+  content_lte: String
+
+  """
+  All values greater than the given value.
+  """
+  content_gt: String
+
+  """
+  All values greater than or equal the given value.
+  """
+  content_gte: String
+
+  """
+  All values containing the given string.
+  """
+  content_contains: String
+
+  """
+  All values not containing the given string.
+  """
+  content_not_contains: String
+
+  """
+  All values starting with the given string.
+  """
+  content_starts_with: String
+
+  """
+  All values not starting with the given string.
+  """
+  content_not_starts_with: String
+
+  """
+  All values ending with the given string.
+  """
+  content_ends_with: String
+
+  """
+  All values not ending with the given string.
+  """
+  content_not_ends_with: String
+  time: DateTime
+
+  """
+  All values that are not equal to given value.
+  """
+  time_not: DateTime
+
+  """
+  All values that are contained in given list.
+  """
+  time_in: [DateTime!]
+
+  """
+  All values that are not contained in given list.
+  """
+  time_not_in: [DateTime!]
+
+  """
+  All values less than the given value.
+  """
+  time_lt: DateTime
+
+  """
+  All values less than or equal the given value.
+  """
+  time_lte: DateTime
+
+  """
+  All values greater than the given value.
+  """
+  time_gt: DateTime
+
+  """
+  All values greater than or equal the given value.
+  """
+  time_gte: DateTime
+  createdAt: DateTime
+
+  """
+  All values that are not equal to given value.
+  """
+  createdAt_not: DateTime
+
+  """
+  All values that are contained in given list.
+  """
+  createdAt_in: [DateTime!]
+
+  """
+  All values that are not contained in given list.
+  """
+  createdAt_not_in: [DateTime!]
+
+  """
+  All values less than the given value.
+  """
+  createdAt_lt: DateTime
+
+  """
+  All values less than or equal the given value.
+  """
+  createdAt_lte: DateTime
+
+  """
+  All values greater than the given value.
+  """
+  createdAt_gt: DateTime
+
+  """
+  All values greater than or equal the given value.
+  """
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+
+  """
+  All values that are not equal to given value.
+  """
+  updatedAt_not: DateTime
+
+  """
+  All values that are contained in given list.
+  """
+  updatedAt_in: [DateTime!]
+
+  """
+  All values that are not contained in given list.
+  """
+  updatedAt_not_in: [DateTime!]
+
+  """
+  All values less than the given value.
+  """
+  updatedAt_lt: DateTime
+
+  """
+  All values less than or equal the given value.
+  """
+  updatedAt_lte: DateTime
+
+  """
+  All values greater than the given value.
+  """
+  updatedAt_gt: DateTime
+
+  """
+  All values greater than or equal the given value.
+  """
+  updatedAt_gte: DateTime
+}
+
+input ArticleWhereUniqueInput {
+  id: ID
+  site: String
+}
+
+type BatchPayload {
+  """
+  The number of nodes that have been affected by the Batch operation.
+  """
+  count: Long!
+}
+
+scalar DateTime
+
+"""
+The `Long` scalar type represents non-fractional signed whole numeric values.
+Long can represent values between -(2^63) and 2^63 - 1.
+"""
+scalar Long
+
+type Mutation {
+  createArticle(data: ArticleCreateInput!): Article!
+  updateArticle(
+    data: ArticleUpdateInput!
+    where: ArticleWhereUniqueInput!
+  ): Article
+  deleteArticle(where: ArticleWhereUniqueInput!): Article
+  upsertArticle(
+    where: ArticleWhereUniqueInput!
+    create: ArticleCreateInput!
+    update: ArticleUpdateInput!
+  ): Article!
+  updateManyArticles(
+    data: ArticleUpdateManyMutationInput!
+    where: ArticleWhereInput
+  ): BatchPayload!
+  deleteManyArticles(where: ArticleWhereInput): BatchPayload!
+}
+
+enum MutationType {
+  CREATED
+  UPDATED
+  DELETED
+}
+
+"""
+An object with an ID
+"""
+interface Node {
+  """
+  The id of the object.
+  """
+  id: ID!
+}
+
+"""
+Information about pagination in a connection.
+"""
+type PageInfo {
+  """
+  When paginating forwards, are there more items?
+  """
+  hasNextPage: Boolean!
+
+  """
+  When paginating backwards, are there more items?
+  """
+  hasPreviousPage: Boolean!
+
+  """
+  When paginating backwards, the cursor to continue.
+  """
+  startCursor: String
+
+  """
+  When paginating forwards, the cursor to continue.
+  """
+  endCursor: String
+}
+
+type Query {
+  articles(
+    where: ArticleWhereInput
+    orderBy: ArticleOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Article]!
+  article(where: ArticleWhereUniqueInput!): Article
+  articlesConnection(
+    where: ArticleWhereInput
+    orderBy: ArticleOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): ArticleConnection!
+
+  """
+  Fetches an object given its ID
+  """
+  node(
+    """
+    The ID of an object
+    """
+    id: ID!
+  ): Node
+}
+
+type Subscription {
+  article(where: ArticleSubscriptionWhereInput): ArticleSubscriptionPayload
+}

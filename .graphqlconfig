@@ -1,0 +1,12 @@
+{
+  "projects": {
+    "prisma": {
+      "schemaPath": "src/generated/prisma.graphql",
+      "extensions": {
+        "endpoints": {
+          "default": "https://news-server-prisma-d34d3feb97.herokuapp.com/news-prisma/dev"
+        }
+      }
+    }
+  }
+}
