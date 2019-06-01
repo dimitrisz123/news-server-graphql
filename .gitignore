@@ -1,3 +1,5 @@
+prisma/
+
 # Logs
 logs
 *.log
